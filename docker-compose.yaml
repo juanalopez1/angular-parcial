@@ -17,6 +17,7 @@ services:
   front:
     image: nginx:alpine
     container_name: front
+    tty: true
     volumes:
       - ./front/:/usr/share/nginx/html
   base:
