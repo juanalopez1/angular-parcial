@@ -15,11 +15,13 @@ services:
       - PGHOST=${PGHOST}
       - JWT_SECRET=${JWT_SECRET}
   front:
-    image: nginx:alpine
+    image: front
     container_name: front
-    tty: true
+    command: sh -c "npm install && npm start"
     volumes:
-      - ./front/:/usr/share/nginx/html
+      - ./front/:/front
+    build:
+      context: ./front
   base:
     image: base
     container_name: base
