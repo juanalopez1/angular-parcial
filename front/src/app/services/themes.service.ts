@@ -3,15 +3,15 @@ import { FetchService } from './fetch.service';
 import { LocalStorageService } from './local-storage.service';
 
 interface Theme {
-  "id_tema": number,
-  "id_usuario": number,
-  "titulo": string,
-  "descripcion": string,
-  "creador": string
+  id_tema: number;
+  id_usuario: number;
+  titulo: string;
+  descripcion: string;
+  creador: string;
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ThemesService {
   private apiService = inject(FetchService);
@@ -21,5 +21,10 @@ export class ThemesService {
     const userId = this.localStorage.getUserData()?.usuario.id_usuario;
 
     return await this.apiService.get<Theme[]>(`usuarios/${userId}/temas/`);
+  }
+
+  public async getThemes() {
+    const themes = await this.apiService.get<Theme[]>('temas/');
+    return themes;
   }
 }

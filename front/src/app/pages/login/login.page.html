@@ -1,0 +1,12 @@
+<p>login works!</p>
+    
+<h2>Bienvenido! identificate</h2>
+<form (ngSubmit)="this.onSubmit()" id="loginForm">
+    <label>Usuario:</label>
+    <input [(ngModel)]="this.username" [ngModelOptions]="{standalone: true}" type="text" id="username" required>
+
+    <label for="password">Contraseña:</label>
+    <input [(ngModel)]="this.contrasena" [ngModelOptions]="{standalone: true}" type="password" id="password" required>
+
+    <button type="submit" id='submit'>Entrar</button>
+</form>

@@ -13,15 +13,4 @@ import { ThemesService } from './services/themes.service';
 })
 export class AppComponent {
 
-  authService = inject(AuthService);
-  themesService = inject(ThemesService);
-
-  public async onRequest(){
-
-    const user = await this.authService.login('admin', '@Admin1')
-    alert(user.token);
-    const themes = await this.themesService.getFromUser();
-    alert(JSON.stringify(themes));
-  }
-
 }
